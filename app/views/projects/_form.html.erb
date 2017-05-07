@@ -1,0 +1,19 @@
+<%= form_for @project do |f| %>
+  <div>
+      <div class="col-4-12">
+        <%= f.submit 'Save', :class => 'button-left' %>
+        <%= f.text_field :project_name, placeholder: "Project Title", :class => 'title' %>
+      </div>
+  </div>
+
+  <div class="col-12-12" style="padding:0">
+    <div class="col-12-12"><h5>Tasks</h5></div>
+    <%= f.fields_for :tasks do |task| %>
+      <%= render "task_fields", f: task %>
+    <% end %>
+    <div class="col-12-12">
+      <%= link_to_add_association 'Add Task', f, :tasks, :class => 'button-left' %>
+    </div>
+  </div>
+
+<% end %>

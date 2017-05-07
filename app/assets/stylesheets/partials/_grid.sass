@@ -1,0 +1,88 @@
+////////////////////////////////////////////////////////////////////////////////
+// Gird Setup
+////////////////////////////////////////////////////////////////////////////////
+
+@import 'config'
+
+$col-width: 100% / $columns
+
+[class*='grid']:after
+  content: ""
+  display: table
+  clear: both
+
+.grid-full
+  width: 100%
+  padding: 20px
+
+.grid
+  max-width: $grid-size
+  margin: 0 auto
+
+.col
+  float: left
+  padding: 10px
+
+// Desktop Columns
+
+@for $x from 1 through $columns
+  .col-#{$x}-#{$columns}
+    width: $col-width * $x
+    @extend .col
+
+// Tablet Columns
+
+@media (min-width: $mobile) and (max-width: $tablet)
+  @for $x from 1 through 6
+    .col-#{$x}-#{$columns}
+      width: 50%
+  @for $x from 6 through ($columns - 1)
+    .col-#{$x}-#{$columns}
+      width: 100%
+
+// Mobile Columns
+
+@media (max-width: $mobile)
+  @for $x from 1 through 4
+    .col-#{$x}-#{$columns}
+      width: 50%
+  @for $x from 5 through ($columns - 1)
+    .col-#{$x}-#{$columns}
+      width: 100%
+
+// Push / Pull Helpers Desktop
+
+@for $x from 1 through $columns
+  .push-left-#{$x}-#{$columns}
+    margin-left: (100/$columns)* $x + unquote("%")
+
+@for $x from 1 through $columns
+  .push-right-#{$x}-#{$columns}
+    margin-right: (100/$columns)* $x + unquote("%")
+
+@for $x from 1 through $columns
+  .pull-left-#{$x}-#{$columns}
+    margin-left: unquote("-") + (100/$columns)* $x + unquote("%")
+
+@for $x from 1 through $columns
+  .pull-right-#{$x}-#{$columns}
+    margin-right: unquote("-") + (100/$columns)* $x + unquote("%")
+
+// Push / Pull Helpers Mobile Remove Spaces
+
+@media (min-width: $mobile) and (max-width: $tablet)
+  @for $x from 1 through $columns
+    .push-left-#{$x}-#{$columns}
+      margin-left: 0
+
+  @for $x from 1 through $columns
+    .push-right-#{$x}-#{$columns}
+      margin-right: 0
+
+  @for $x from 1 through $columns
+    .pull-left-#{$x}-#{$columns}
+      margin-left: 0
+
+  @for $x from 1 through $columns
+    .pull-right-#{$x}-#{$columns}
+      margin-right: 0

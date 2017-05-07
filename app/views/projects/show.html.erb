@@ -1,0 +1,15 @@
+<div class="col-12-12">
+  <h3><%= @project.project_name %></h3>
+  <%= link_to 'Delete', project_path, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Edit', edit_project_path(@project) %> |
+  <%= link_to 'Back', projects_path %>
+</div>
+
+<% @project.tasks.each do |task| %>
+    <div class="col-4-12">
+      <div class="task">
+        <h4><%= task.title %></h4>
+        <p><%= task.description %></p>
+      </div>
+    </div>
+<% end %>

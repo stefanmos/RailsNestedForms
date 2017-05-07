@@ -1,0 +1,49 @@
+////////////////////////////////////////////////////////////////////////////////
+// Typography
+////////////////////////////////////////////////////////////////////////////////
+
+@import 'config'
+@import 'mixins'
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900)
+
+html
+  font-size: $font-base
+
+body
+  font-size: 14rem
+  font-family: $brand-font
+  line-height: $global-line-height
+  font-weight: 300
+  text-align: left
+
+h1,h2,h3,h4,h5,h6,small
+  font-weight: 300
+  margin: 10px 0
+
+h1
+  font-size: 64rem
+h2
+  font-size: 45rem
+h3
+  font-size: 32rem
+h4
+  font-size: 23rem
+  font-weight: 400
+h5
+  font-size: 16rem
+  font-weight: 400
+h6
+  font-size: 11rem
+small
+  font-size: 8rem
+p
+  font-size: 14rem
+  line-height: $paragraph-line-height
+b
+  font-weight: 500
+a
+  font-size: 12rem
+  font-weight: 500
+  color: $primary-color
+  &:hover
+    color: darken($primary-color, 50%)
